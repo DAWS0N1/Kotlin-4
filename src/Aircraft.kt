@@ -2,6 +2,10 @@ interface Passenger {
     var peopleCapacity: Int
 }
 
+interface Carry {
+    var carrying: Int
+}
+
 abstract class Aircraft {
     constructor(number: Int, flight: Int, tank: Int) {
         this.number = number
@@ -45,4 +49,24 @@ class Boeing747: Passenger, Aircraft {
 
     override val info: String
         get() = super.info + "\tВместимость пасажиров $peopleCapacity"
+}
+
+class Tu140(number: Int, flight: Int, tank: Int) : Aircraft(number, flight, tank) {
+    override val info: String
+        get() = super.info
+}
+
+class An70: Carry, Aircraft {
+    constructor(number: Int, flight: Int, tank: Int, carrying: Int) : super(number, flight, tank) {
+        this.carrying = carrying
+    }
+
+    override var carrying: Int
+        set(value) {
+            if (value > 0)
+                field = value
+        }
+
+    override val info: String
+        get() = super.info + "\tГрузоподъемность $carrying"
 }
