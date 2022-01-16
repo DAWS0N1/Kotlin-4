@@ -2,7 +2,7 @@ interface Passenger {
     var peopleCapacity: Int
 }
 
-open class Aircraft {
+abstract class Aircraft {
     constructor(number: Int, flight: Int, tank: Int) {
         this.number = number
         this.flight = flight
