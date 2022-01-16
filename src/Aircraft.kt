@@ -1,3 +1,7 @@
+interface Passenger {
+    var peopleCapacity: Int
+}
+
 open class Aircraft {
     constructor(number: Int, flight: Int, tank: Int) {
         this.number = number
@@ -25,12 +29,12 @@ open class Aircraft {
         get() = tank/(flight/100).toFloat()
 }
 
-class Boeing747: Aircraft {
+class Boeing747: Passenger, Aircraft {
     constructor(number: Int, flight: Int, tank: Int, peopleCapacity: Int) : super(number, flight, tank) {
         this.peopleCapacity = peopleCapacity
     }
 
-    var peopleCapacity: Int
+    override var peopleCapacity: Int
         set(value) {
             if (value > 0)
                 field = value
