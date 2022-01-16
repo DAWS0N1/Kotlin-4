@@ -9,24 +9,27 @@ abstract class Aircraft {
         this.tank = tank
     }
 
-    var number: Int
+    protected var number: Int
         set(value) {
             if (value > 0)
                 field = value
         }
-    var flight: Int
+    protected var flight: Int
         set(value) {
             if (value > 0)
                 field = value
         }
-    var tank: Int
+    protected var tank: Int
         set(value) {
             if (value > 0)
                 field = value
         }
 
-    val consuption: Float
+    protected val consuption: Float
         get() = tank/(flight/100).toFloat()
+
+    open val info: String
+        get() = "Номер: $number\tДальность полета: $flight\tВместимость бака: $tank\tРасход на 100 км: $consuption"
 }
 
 class Boeing747: Passenger, Aircraft {
@@ -39,4 +42,7 @@ class Boeing747: Passenger, Aircraft {
             if (value > 0)
                 field = value
         }
+
+    override val info: String
+        get() = super.info + "\tВместимость пасажиров $peopleCapacity"
 }
