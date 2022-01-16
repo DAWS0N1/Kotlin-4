@@ -1,4 +1,4 @@
 fun main(args: Array<String>) {
-    val aircraft = Aircraft(70, 15000, 2000)
-    println(aircraft.consuption)
+    val aircraft = Boeing747(70, 15000, 2000, 300)
+    println(aircraft.peopleCapacity)
 }

@@ -24,3 +24,15 @@ open class Aircraft {
     val consuption: Float
         get() = tank/(flight/100).toFloat()
 }
+
+class Boeing747: Aircraft {
+    constructor(number: Int, flight: Int, tank: Int, peopleCapacity: Int) : super(number, flight, tank) {
+        this.peopleCapacity = peopleCapacity
+    }
+
+    var peopleCapacity: Int
+        set(value) {
+            if (value > 0)
+                field = value
+        }
+}
